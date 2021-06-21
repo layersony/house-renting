@@ -32,7 +32,7 @@ class User(UserMixin, db.Model): # table for both agent & admin
   def __repr__(self):
     return f'{self.fname} {self.sname}'
 
-class Role(db.Model): # setting roles for specific users
+class Roles(db.Model): # setting roles for specific users
   __tablename__ = "roles"
 
   id = db.Column(db.Integer, primary_key=True)
@@ -42,8 +42,8 @@ class UserRoles(db.Model): # defining the userrole association table
   __tablename__ = 'user_roles'
 
   id= db.Column(db.Integer, primary_key=True)
-  user_id = db.Column(db.Integer, db.ForeignKey('user_id', ondelete='CASCADE'))
-  role_id = db.Column(db.Integer, db.ForeignKey('roles_id', ondelete='CASCADE'))
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'))
+  role_id = db.Column(db.Integer, db.ForeignKey('roles.id', ondelete='CASCADE'))
 
   def admin(self):
     pass
@@ -51,7 +51,7 @@ class UserRoles(db.Model): # defining the userrole association table
   def agent(self):
     pass
 
-class house(db.Model): # house property
+class House(db.Model): # house property
   __tablename__ = "house"
   id = db.Column(db.Integer, primary_key=True)
   location = db.Column(db.String(128))
@@ -78,7 +78,7 @@ class Review(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   reviews = db.Column(db.String(255))
-  rating = db.Column(db.Integer(10))
+  rating = db.Column(db.Integer())
 
   def save_review(self):
     db.session.add(self)
