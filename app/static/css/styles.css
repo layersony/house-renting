@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Ubuntu;
+}
+body{
+  background: rgba(0, 0, 0, 0.54) url('/static/images/bg1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: darken;
+  background-attachment: fixed;
+}
+.nabar-custom{
+  min-height: 130px;
+}
+.brandlogo{
+  color: #fff;
+  font-size: 40px;
+}
+
+.landing{
+  height: 70vh;
+  padding: 15px;
+  color: white;
+}
+.housetitle h1{
+  font-size: 8vh;
+}
+
+.searchbar{
+  width: 400px;
+}
+.searchbar input[type='text']{
+  border-bottom: 5px solid;
+  border-radius: 20px;
+  height: 50px;
+}

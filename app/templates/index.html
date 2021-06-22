@@ -1,1 +1,21 @@
-<h1>{{ heading }}</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container d-flex flex-column justify-content-center landing align-items-center text-center">
+    <div class="housetitle mb-4">
+      <h1>HOUSE HUNTING</h1>
+      <h5>SLOGAN</h5>
+    </div>
+
+    <div class="searchbar">
+      <form action="#">
+        <input type="text" class="form-control mb-2 text-center" id='search' name='search' placeholder='Search Location....'>
+        <div class="text-center">
+          <input type="submit" value="Search" class="btn btn-md btn-outline-secondary">
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
