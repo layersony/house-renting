@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="houselist mt-md-4 mb-md-4 d-flex flex-column justify-content-center align-items-center">
+  <h3 class="text-center">HOUSE LISTING</h3>
+
+  <div class="bg-danger housediv">
+    {# for item in houselisting #}
+    <div class="row featured">
+      <div class="col-md-4">
+        <img src="#" alt="house image">
+      </div>
+      <div class="col-md-8">
+        <div class="househead justify-content-between align-items-center">
+          <span>1 bedroom in Embakasi, Nairobi</span>
+          <span class="price">12000</span>
+        </div>
+        <sub>Ratings <span>4</span> Stars</sub>
+        <div class="housefooter justify-content-between align-items-center">
+          <span>Sat 12, 2021</span>
+          <span>Reviews 3</span>
+          <a href="#"><button class="btn btn-md btn-outline-succes">Review</button></a>
+        </div>
+      </div>
+    </div>
+    {# endfor #}
+  </div>
+</div>
+
+{% endblock %}
