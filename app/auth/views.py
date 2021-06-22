@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for, flash,request
 from app.auth import auth
 from ..models import User
-from .forms import LoginFormAdmin, RegistrationFormAdmin,RegistrationFormAgent
+from .forms import LoginFormAdmin, RegistrationFormAdmin,RegistrationFormAgent,LoginFormAgent
 from .. import db
 from flask_login import login_user
 
@@ -14,8 +14,8 @@ def register():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('auth.login'))
-        title = "New Admin Account"
-    return render_template('auth/admin/register.html',registration_form = form)
+    title = "Admin registration"
+    return render_template('auth/admin/register.html',title=title,registration_form = form)
 
 # Admin login 
 @auth.route('/login',methods=['GET','POST'])
@@ -31,3 +31,6 @@ def login():
 
     title = "Admin login"
     return render_template('auth/admin/login.html',login_form = login_form,title=title)
+
+# -----------------------Agent----------------------------------------------------
+#
