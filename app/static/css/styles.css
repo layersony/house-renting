@@ -37,10 +37,37 @@ body{
   height: 50px;
 }
 .housediv{
+  color: white;
   width: 800px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.86);
 }
 
 .featured{
-  height: 120px;
+  height: 150px;
+}
+.review{
+  width: 500px;
+  padding: 15px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.604);
   border-radius: 20px;
+}
+span>.price{
+  font-size: 20px;
+}
+input[type=submit], .reviewbtn{
+  color: white;
+  border: 2px solid;
+  margin-top: 5px;
+}
+input[type=submit]:hover, .reviewbtn:hover{
+  color: black;
+  background-color: white;
+}
+.housedetails{
+  background-color: rgba(0, 0, 0, 0.556);
+  padding: 15px;
+  border-radius: 10px;
 }
