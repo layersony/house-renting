@@ -6,7 +6,6 @@ from flask_mail import Mail
 from flask_login import LoginManager
 
 
-
 db = SQLAlchemy()
 mail = Mail()
 bootstrap = Bootstrap()

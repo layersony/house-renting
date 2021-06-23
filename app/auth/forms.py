@@ -3,6 +3,7 @@ from wtforms import StringField,PasswordField,SubmitField,BooleanField
 from wtforms.validators import DataRequired,Length,Email,EqualTo
 from wtforms import ValidationError
 from app.models import User
+
 # Registration form
 class RegistrationFormAdmin(FlaskForm):
     """
@@ -10,13 +11,13 @@ class RegistrationFormAdmin(FlaskForm):
     """
     full_name = StringField("Full name",validators=[DataRequired(),Length(min = 3,max =30)])
     username = StringField("Username",validators=[DataRequired(),Length(min = 3,max =20)])
-    email = StringField("Email",validators=[DataRequired(),Email()])
-    phone = StringField("Phone",validators=[DataRequired(),Email()])
-    password = PasswordField("Password",validators=[DataRequired(),])
+    email = StringField("Email",validators=[DataRequired()])
+    phone = StringField("Phone",validators=[DataRequired(),Length(min = 9,max =16)])
+    password = PasswordField("Password",validators=[DataRequired()])
     confirm_password = PasswordField("Password Confirm",validators=[DataRequired(),EqualTo("password")])
     submit = SubmitField("Register")
 
-        # custom validators
+    # custom validators
     def validate_email(self,data_field):
         if User.query.filter_by(email =data_field.data).first():
             raise ValidationError('There is an account with that email')
@@ -34,6 +35,19 @@ class LoginFormAdmin(FlaskForm):
     password = PasswordField("Password",validators=[DataRequired(),])
     remember = BooleanField("Remember me")
     submit = SubmitField("Submit")
+
+# Password reset
+class ResetFormAdmin(FlaskForm):
+    """
+    Class for password reset Admin
+    """
+    email = StringField("Email",validators=[DataRequired(),Email()])
+    submit = SubmitField("Reset Password")
+
+
+
+
+
 
 # Agent Registration form
 class RegistrationFormAgent(FlaskForm):
@@ -66,3 +80,11 @@ class LoginFormAgent(FlaskForm):
     password = PasswordField("Password",validators=[DataRequired(),])
     remember = BooleanField("Remember me")
     submit = SubmitField("Submit")
+
+
+# password reset and forgot forms
+# class ForgotForm(Form):
+#     email = StringField("Email",validators=[DataRequired(),Email()])
+
+# class PasswordResetForm(Form):
+#     current_password = StringField("Current Password",validators=[DataRequired(),Length(min=8,max=20)])

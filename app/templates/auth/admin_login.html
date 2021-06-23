@@ -7,13 +7,17 @@
       <div class= "col-md-2"> </div>
       <div class="col-md-8">
       <!--Flash message -->
+      {% for message in get_flashed_messages() %}
         <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
         </div>
+      {% endfor %}
       <!-- Login form -->
       {{wtf.quick_form(login_form)}}
-      <p> Don't have an account? <a href="{{url_for('auth.registerAgent')}}">Sign up here</a></p>
-     </div>
+      <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
+      <a href="{{url_for('auth.reset_request')}}" class="link-info">Forgot password</a>
+    </div>
      <div clas="col-md-2"> </div>
     </div>
 </div>
