@@ -1,34 +1,28 @@
 from flask import render_template,redirect,url_for, flash,request
 from app.auth import auth
 from ..models import User
-from .forms import LoginFormAdmin, RegistrationFormAdmin,RequestResetForm,RegistrationFormAgent
+from .forms import LoginFormAdmin, RegistrationFormAdmin,RegistrationFormAgent
 from .. import db,bcrypt,create_app,mail
 from flask_login import login_required,login_user,current_user,logout_user
 from flask_mail import Message
 # Admin reg
-@auth.route('/register',methods = ["GET","POST"])
+@auth.route('/register',methods = ["POST","GET"])
 def register():
-    
     form = RegistrationFormAdmin()
     
     if form.validate_on_submit():
         
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf8')
-       
-        user = User(email = form.email.data, username = form.username.data, password = hashed_password)
-
+        user = User(username=form.username.data, email = form.email.data, password=form.password.data)
         
         db.session.add(user)
         
         db.session.commit()
         
-        flash("Account successfully created. Proceed with Login")
+        return  redirect(url_for('auth.login'))
         
-        return redirect(url_for('auth.login'))
+        title = "Amin login"
     
-    title = "Admin registration"
-    
-    return render_template('auth/admin_register.html',title=title,form = form)
+    return render_template('auth/admin_register.html',form=form )
 
 # Admin login 
 @auth.route('/login',methods = ['POST','GET'])
@@ -40,10 +34,9 @@ def login():
         
         user = User.query.filter_by(email = form.email.data).first()
         
-        if user and bcrypt.check_password_hash(user.password,form.password.data):
-
+        if user is not None and user.verify_password(form.password.data):
             
-            login_user(user,remember = form.remember.data)
+            login_user(user,form.remember.data)
             
             return redirect(request.args.get('next') or url_for('main.index'))
         
@@ -52,6 +45,7 @@ def login():
     title = "Admin login"
     
     return render_template('auth/admin_login.html',form = form,title=title)
+
 
 # logout
 @auth.route('/logout')

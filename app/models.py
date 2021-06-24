@@ -1,9 +1,7 @@
-from . import db, login_manager,create_app
+from . import db, login_manager
 from flask_login import UserMixin, current_user
-import app
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer #setting time before the token for verification expires
 
 
 class User(UserMixin, db.Model): # table for both agent & admin
@@ -16,43 +14,24 @@ class User(UserMixin, db.Model): # table for both agent & admin
   email = db.Column(db.String(128))
   phone = db.Column(db.Integer())
   dataJoined = db.Column(db.DateTime, default=datetime.utcnow())
-  password= db.Column(db.String(255),nullable=False)
+  pass_secure = db.Column(db.String(255))
+  role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
-  roles = db.relationship('Role', backref='users', lazy='dynamic')
+  # roles = db.relationship('Roles', backref='users', lazy='dynamic')
 
-  # handling forgot password
-  def get_reset_token(self, expires_sec=1800):
-    s = Serializer(create_app("development"),expires_sec)
-    return s.dumps({'user_id': self.id}).decode('utf-8')
-   
-  @staticmethod
-  def verify_reset_token(token):
-    s = Serializer(create_app("development"))
-    try:
-      user_id = s.loads(token)['user_id']
-    except:
-      return None
-    return User.query.get(user_id)
-    
+  @property
+  def password(self):
+    raise AttributeError("You Can't Read the password attribute")
+
+  @password.setter
+  def password(self, password):
+    self.pass_secure = generate_password_hash(password)
+
+  def verify_password(self, password):
+    return check_password_hash(self.pass_secure, password)
+
   def __repr__(self):
-    return f"User('{self.username}','{self.email})"
-  
-  # role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-
-  # @property
-  # def password(self):
-  #   raise AttributeError("You Can't Read the password attribute")
-
-  # @password.setter
-  # def password(self, password):
-  #   self.pass_secure = generate_password_hash(password)
-
-  # def verify_password(self, password):
-  #   return check_password_hash(self.password, password)
-
-
-
-    
+    return f'{self.fname} {self.sname}'
 
 class Roles(db.Model): # setting roles for specific users
   __tablename__ = "roles"

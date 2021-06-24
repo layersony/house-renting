@@ -18,7 +18,6 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
   SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://axs:code@localhost/househunt'
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://layersony:1q2w3e4r5t6y@localhost/househunt'
   DEBUG = True
 
 config_options = {
