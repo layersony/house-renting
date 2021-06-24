@@ -67,10 +67,12 @@ def new_house():
         house_city=request.form['city']
         house_price=request.form['price']
         house_desc=request.form['desc']
-        filename = photos.save(request.files['images'])
-        house_image=f'images/{filename}'
+        # filename = photos.save(request.files['images'])
+        # house_image=f'images/{filename}'
         
-        new_house=house(house_location=house_location,house_city=house_city,house_price=house_price,house_image=house_image,user=current_user)
+        # new_house=house(house_location=house_location,house_city=house_city,house_price=house_price,house_image=house_image,user=current_user)
+        new_house=house(house_location=house_location,house_city=house_city,house_price=house_price,house_desc=house_desc,user=current_user)
+
         new_house.save_house()
 
     return render_template('admin/new_house.html') 
