@@ -75,3 +75,25 @@ def new_house():
 
     return render_template('admin/new_house.html') 
 
+@main.route('/agent/dashboard', methods=['GET', 'POST'])
+def agentdash():
+  user = User.query.filter_by(name = name).first()
+
+  if user is None:
+    abort(404)
+  else:
+    form = AddPropertyForm()
+
+    if form.validate_on_submit():
+      house = form.housetype.data
+      location = form.location.data
+      city = form.city.data
+      image = form.image.data
+      desc = form.description.data
+      price = form.price.data
+      
+      new_house = House(house, location, city, image, desc, price)
+      new_house.save_house()
+      return redirect(url_for('main.agentdash'))
+
+  return render_template('agent/agentdash.html', form=form)
