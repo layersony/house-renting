@@ -1,10 +1,7 @@
 import os
-import secrets
-
-secret =secrets.token_urlsafe(32)
 
 class Config:
-  SECRET_KEY = secret
+  SECRET_KEY = "ibelieveinsecrets"
   MAIL_SERVER = 'smtp.googlemail.com'
   MAIL_PORT = 587
   MAIL_USE_TLS = True
@@ -20,7 +17,7 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://layersony:1q2w3e4r5t6y@localhost/househunt'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://axs:code@localhost/househunt'
   DEBUG = True
 
 config_options = {

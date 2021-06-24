@@ -14,6 +14,9 @@
                 <li><a href="/">Home</a></li>
                 <li class="lilisting"><a class="nav-item other" href="{{url_for('auth.register')}}">Register</a></li>
                 <li><a class="nav-item other" href="{{url_for('auth.login')}}">Sign In</a></li>
+                <a class="dropdown-item" href="{{url_for('auth.logout')}}"
+                ><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a
+              >
             </ul>
           </div>
     </div>
