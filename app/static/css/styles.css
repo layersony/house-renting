@@ -48,11 +48,13 @@ ul{
   width: 800px;
   border-radius: 5px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.86);
 }
 
 .featured{
-  height: 150px;
+  min-height: 150px;
+  background-color: rgba(0, 0, 0, 0.86);
+  border-radius: 5px;
+  padding: 20px;
 }
 .review{
   width: 500px;
@@ -84,4 +86,8 @@ input[type=submit]:hover, .reviewbtn:hover{
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.79);
   color: white;
+}
+img{
+  max-width:300px;
+  max-height: 300px;
 }

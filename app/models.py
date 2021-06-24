@@ -16,7 +16,7 @@ class User(UserMixin, db.Model): # table for both agent & admin
   pass_secure = db.Column(db.String(255))
   role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
-  roles = db.relationship('Role', backref='users', lazy='dynamic')
+  # roles = db.relationship('Role', backref='users', lazy='dynamic')
 
   @property
   def password(self):
@@ -53,7 +53,9 @@ class UserRoles(db.Model): # defining the userrole association table
 
 class House(db.Model): # house property
   __tablename__ = "house"
+
   id = db.Column(db.Integer, primary_key=True)
+
   location = db.Column(db.String(128))
   city = db.Column(db.String(128))
   images = db.Column(db.String())
