@@ -14,7 +14,12 @@ Flask-SQLAlchemy==2.5.1
 Flask-Uploads==0.2.1
 Flask-WTF==0.15.1
 greenlet==1.1.0
+<<<<<<< HEAD
 idna==3.2
+||||||| 4d06be7
+=======
+gunicorn==20.1.0
+>>>>>>> 7c9fffe80935cd0b6276caa4b5d39040fcac2c57
 itsdangerous==1.1.0
 Jinja2==2.11.3
 Mako==1.1.4

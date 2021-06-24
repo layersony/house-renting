@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer #setting time before the token for verification expires
 
+
 class User(UserMixin, db.Model): # table for both agent & admin
   __tablename__ = 'users'
 
@@ -17,8 +18,8 @@ class User(UserMixin, db.Model): # table for both agent & admin
   dataJoined = db.Column(db.DateTime, default=datetime.utcnow())
   password= db.Column(db.String(255),nullable=False)
 
+  roles = db.relationship('Role', backref='users', lazy='dynamic')
 
-  
   # handling forgot password
   def get_reset_token(self, expires_sec=1800):
     s = Serializer(create_app("development"),expires_sec)

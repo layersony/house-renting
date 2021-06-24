@@ -2,6 +2,8 @@ start.sh
 *pyc
 houserenting/
 settings.json
+installpips.sh
+virtual/
 
 
 ### Flask ###
@@ -149,3 +151,5 @@ Thumbs.db
 .prof
 
 
+house-renting/
+virtual/
