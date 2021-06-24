@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField,BooleanField
+from wtforms import StringField,PasswordField,SubmitField,BooleanField,TextAreaField
 from wtforms.validators import DataRequired,Length,Email,EqualTo
 from wtforms import ValidationError
 from app.models import User
@@ -66,3 +66,16 @@ class LoginFormAgent(FlaskForm):
     password = PasswordField("Password",validators=[DataRequired(),])
     remember = BooleanField("Remember me")
     submit = SubmitField("Submit")
+
+class ContactUsForm(FlaskForm):
+    """
+    class customers feedback
+    """
+    full_name = StringField("Full name",validators=[DataRequired(),Length(min = 3,max =30)])
+    email = StringField("Email",validators=[DataRequired(),Email()])
+    message = TextAreaField("Message",validators=[DataRequired()])
+    submit = SubmitField("Submit")
+    def validate_email(self,data_field):
+        if User.query.filter_by(email =data_field.data).first():
+            raise ValidationError('There is an account with that email')
+

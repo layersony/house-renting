@@ -13,9 +13,11 @@
         <li class="nav-item"><a class="nav-link text-white" aria-current="page" href="#">Home</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.houselist') }}">House Listing</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.about') }}">About Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.agentdash')}}">Agent</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.index_admin')}}">Admin</a></li>
+
+        <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.customer_feedback')}}">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login')}}">Admin Login</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login_agent')}}">Agent Login</a></li>
+
       </ul>
     </div>
   </div>
