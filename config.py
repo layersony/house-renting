@@ -20,8 +20,7 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:123456#$@localhost/admin'
-
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/househunt'
   DEBUG = True
 
 config_options = {
