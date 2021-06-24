@@ -2,6 +2,7 @@ start.sh
 *pyc
 houserenting/
 settings.json
+virtual/
 
 
 ### Flask ###
