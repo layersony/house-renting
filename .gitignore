@@ -1,5 +1,5 @@
 start.sh
-*pyc
+# *.pyc
 househunt/
 settings.json
 installpips.sh
