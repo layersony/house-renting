@@ -59,7 +59,7 @@ def index_admin():
     return render_template('admin/index.html' )
 
 @main.route('/admin/house/new',methods= ['GET','POST'])
-# @login_required
+@login_required
 def new_house():
     
     if request.method=='POST':
@@ -75,29 +75,31 @@ def new_house():
 
     return render_template('admin/new_house.html') 
 
-@main.route('/agent/dashboard', methods=['GET', 'POST'])
-def agentdash():
+@main.route('/agent/dashboard/<name>', methods=['GET', 'POST'])
+@login_required
+def agentdash(name):
     houselisting = House.query.all()
 
-    # user = User.query.filter_by(name = name).first()
-
-    # if user is None:
-    #   abort(404)
-    # else:
+    user = User.query.filter_by(username = name).first()
     form = AddPropertyForm()
 
-    if form.validate_on_submit():
-      house = form.housetype.data
-      location = form.location.data
-      city = form.city.data
-      filename = photos.save(request.files['image'])
-      house_image=f'photos/{filename}'
-      desc = form.description.data
-      price = form.price.data
-      
-      new_house = House(house_type= house, location=location, city=city, images=house_image, desc=desc, price=price)
-
-      new_house.save_house()
-      return redirect(url_for('main.agentdash'))
-
+    if user is None:
+      abort(404)
+    else:
+      print(form.housetype.data)
+      if form.validate_on_submit():
+        print('inside')
+        house = form.housetype.data
+        location = form.location.data
+        city = form.city.data
+        filename = photos.save(request.files['image'])
+        house_image=f'photos/{filename}'
+        desc = form.description.data
+        price = form.price.data
+        
+        new_house = House(house_type= house, location=location, city=city, images=house_image, desc=desc, price=price)
+        new_house.save_house()
+        return redirect(url_for('main.agentdash', name=current_user.username))
+        
     return render_template('agent/agentdash.html', form=form, houselisting=houselisting)
+

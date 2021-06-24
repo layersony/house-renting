@@ -49,9 +49,7 @@ def login():
 
 # logout
 @auth.route('/logout')
-
 @login_required
-
 def logout():
     
     logout_user()
@@ -74,6 +72,7 @@ def customer_feedback():
     title = "Contact us"
     
     return render_template('auth/contact.html',form = form,title=title)
+
 # # Agent Registration
 # # Admin reg
 # @auth.route('/agent',methods = ["GET","POST"])

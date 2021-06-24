@@ -67,9 +67,10 @@ span>.price{
   font-size: 20px;
 }
 input[type=submit], .reviewbtn{
-  color: white;
+  color: rgb(252, 252, 252);
   border: 2px solid;
   margin-top: 5px;
+  background-color: gray;
 }
 input[type=submit]:hover, .reviewbtn:hover{
   color: black;

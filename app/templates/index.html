@@ -15,8 +15,13 @@
         <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.about') }}">About Us</a></li>
 
         <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.customer_feedback')}}">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login')}}">Admin Login</a></li>
+        <!-- <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login')}}">Admin Login</a></li> -->
+        {% if current_user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.agentdash', name = current_user.username) }}">Agent Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.logout')}}">Log Out</a></li>
+        {% else %}
         <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login_agent')}}">Agent Login</a></li>
+        {% endif %}
 
       </ul>
     </div>
