@@ -1,0 +1,45 @@
+{% extends 'admin/base.html' %}{%block content%}
+<div class="head">
+    <br><br><br><br><br><br><br><br><br>
+    <div class="jumbotron">
+        <div id="head1" style="font-size: 20px; font-family: 'Merienda', cursive;">
+            <h1>WELCOME TO YOUR NEW HOME</h1>
+            <p>“The magic thing about home is that it feels good to leave, and it feels even better to come back.”</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .head {
+        background-image: url('/static/images/home1.jpg');
+        background-repeat: no-repeat;
+        /* width: 100%; */
+        height: 93vh;
+        background-size: cover;
+        text-align: center;
+        background-attachment: fixed;
+        margin-top: 0px;
+        padding: 0px;
+    }
+    
+    #head1 p {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 25px;
+    }
+    
+    .jumbotron {
+        background-color: rgba(14, 23, 35, 0.5);
+        margin-left: 250px;
+        margin-right: 250px;
+    }
+    
+    #head1 h1 {
+        color: gold;
+    }
+    
+    #details {
+        background-color: #81D4FA;
+    }
+</style>
+{%endblock%}
