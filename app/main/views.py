@@ -57,7 +57,6 @@ def index_admin():
     # house=Houses.get_all_houses()
     return render_template('admin/index.html' )
 
-
 @main.route('/admin/house/new',methods= ['GET','POST'])
 # @login_required
 def new_house():
