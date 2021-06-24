@@ -4,15 +4,18 @@
   font-family: Ubuntu;
 }
 body{
-  background: rgba(0, 0, 0, 0.54) url('/static/images/bg1.jpg');
+  background-color: rgb(250, 250, 237);
+
+}
+.navbar-custom{
+  background: rgba(0, 0, 0, 0.54) url('/static/images/bg2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-blend-mode: darken;
   background-attachment: fixed;
-}
-.nabar-custom{
-  min-height: 130px;
+  min-height: 200px;
+
 }
 .brandlogo{
   color: #fff;
@@ -24,22 +27,26 @@ body{
   padding: 15px;
   color: white;
 }
-.housetitle h1{
-  font-size: 8vh;
+
+ul{
+  border-bottom: 5px solid white;
 }
 
-.searchbar{
-  width: 400px;
+.nav-link{
+  font-size: 20px;
 }
-.searchbar input[type='text']{
-  border-bottom: 5px solid;
-  border-radius: 20px;
-  height: 50px;
+.nav-item{
+  padding: 5px;
 }
+.nav-item:hover{
+  background-color: grey;
+  color: black;
+}
+
 .housediv{
   color: white;
   width: 800px;
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.86);
 }
@@ -52,7 +59,7 @@ body{
   padding: 15px;
   color: white;
   background-color: rgba(0, 0, 0, 0.604);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 span>.price{
   font-size: 20px;
@@ -69,5 +76,12 @@ input[type=submit]:hover, .reviewbtn:hover{
 .housedetails{
   background-color: rgba(0, 0, 0, 0.556);
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+.bout{
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.79);
+  color: white;
 }
