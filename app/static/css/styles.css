@@ -1,0 +1,87 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Ubuntu;
+}
+body{
+  background-color: rgb(250, 250, 237);
+
+}
+.navbar-custom{
+  background: rgba(0, 0, 0, 0.54) url('/static/images/bg2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  min-height: 200px;
+
+}
+.brandlogo{
+  color: #fff;
+  font-size: 40px;
+}
+
+.landing{
+  height: 70vh;
+  padding: 15px;
+  color: white;
+}
+
+ul{
+  border-bottom: 5px solid white;
+}
+
+.nav-link{
+  font-size: 20px;
+}
+.nav-item{
+  padding: 5px;
+}
+.nav-item:hover{
+  background-color: grey;
+  color: black;
+}
+
+.housediv{
+  color: white;
+  width: 800px;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.86);
+}
+
+.featured{
+  height: 150px;
+}
+.review{
+  width: 500px;
+  padding: 15px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.604);
+  border-radius: 5px;
+}
+span>.price{
+  font-size: 20px;
+}
+input[type=submit], .reviewbtn{
+  color: white;
+  border: 2px solid;
+  margin-top: 5px;
+}
+input[type=submit]:hover, .reviewbtn:hover{
+  color: black;
+  background-color: white;
+}
+.housedetails{
+  background-color: rgba(0, 0, 0, 0.556);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.bout{
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.79);
+  color: white;
+}

@@ -16,7 +16,7 @@ class User(UserMixin, db.Model): # table for both agent & admin
   pass_secure = db.Column(db.String(255))
   role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
-  roles = db.relationship('Role', backref='users', lazy='dynamic')
+  # roles = db.relationship('Roles', backref='users', lazy='dynamic')
 
   @property
   def password(self):
