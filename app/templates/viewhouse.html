@@ -2,24 +2,79 @@
 
 {% block content %}
 
-<a href="/"><button class="btn btn-outline-info mb-3 mt-4">Go Back</button></a>
-<div class="dethouse row bg-success">
+<a href="{{ url_for('main.houselist', id=gethouse.id)}}"><button class="btn btn-outline-info mb-3 mt-4">Go Back</button></a>
+<div class="dethouse row">
+
   <div class="col-md-5 d-flex flex-column justify-content-center ng-success">
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fansunibaate.com%2Fwp-content%2Fuploads%2F2019%2F05%2Fluxury-home-house-image-full-image-picture-photo-hd.jpg&f=1&nofb=1" alt="houseimage" class="img-responsive p-2">
+    <!-- <img src="" alt="houseimage" class="img-responsive p-2"> -->
+    <img src="{{url_for('static',filename=gethouse.images)}}" alt="house image" class="img-fluid">
     <hr>
     <div class="detreview">
       <div class="d-md-flex justify-content-between align-items-center">
         <h4>Reviews</h4>
-        <a href="{{ url_for('main.review') }}"><button class="btn btn-md reviewbtn">Add Review</button></a>
+        <a href="{{ url_for('main.review', id=gethouse.id) }}"><button class="btn btn-md reviewbutton">Add Review</button></a>
       </div>
       <hr>
       <div class="p-3">
-        <p>List for all reviews</p>
+        {% if reviews %}
+        {% for rev in reviews %}
+        <div class=" text-white bg-secondary p-2 mt-2  br-2">
+          <p>Review: {{ rev.reviews }}</p>
+          <p>Ratings: {{ rev.rating }} Star</p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No Reviews</p>
+        {% endif %}
       </div>
     </div>
   </div>
+
+
   <div class="col-md-7 p-2 housedetails">
-    <p>house list detail</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Location</th>
+          <td>{{ gethouse.location }}</td>
+        </tr>
+        <tr>
+          <th scope="row">City</th>
+          <td>{{ gethouse.city }}</td>
+        </tr>
+        <tr>
+          <th scope="row">House Type</th>
+          <td>{{ gethouse.house_type }}</td>
+        </tr>
+        <tr>
+          <th scope="row">House Description</th>
+          <td>{{ gethouse.desc }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Price</th>
+          <td>{{ gethouse.price }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Date Posted</th>
+          <td>{{ gethouse.dateposted }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Agents Name</th>
+          <td>FreeWill Properties</td>
+        </tr>
+        <tr>
+          <th scope="row">Agents Number</th>
+          <td>+25472345678</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

@@ -20,14 +20,15 @@ def houselist():
   houselisting = House.query.all()
   return render_template('houselisting.html', houselisting=houselisting)
 
-@main.route('/houselist/house', methods=['GET', 'POST'])
-def house():
-  # gethouse = House.query.filter_by(id=id).first()
-  return render_template('viewhouse.html')
+@main.route('/houselist/house/<id>', methods=['GET', 'POST'])
+def house(id):
+  gethouse = House.query.filter_by(id=id).first()
+  reviews = Review.query.filter_by(id=id).all()
+  return render_template('viewhouse.html', gethouse=gethouse, reviews=reviews)
 
-@main.route('/review', methods=['GET', 'POST'])
-def review():
-  # house = House.query.filter(id=id).first()
+@main.route('/review/<id>', methods=['GET', 'POST'])
+def review(id):
+  house = House.query.filter_by(id=id).first()
   reviehouse = ReviewForm()
 
   if reviehouse.validate_on_submit():
@@ -35,14 +36,14 @@ def review():
     rating = reviehouse.ratinginput.data
     new_review = Review(reviews = reviews, rating=rating)
     new_review.save_review()
-    return redirect(url_for('main.houselist'))
+    return redirect(url_for('main.house', id=id))
   
   pastreview = Review.query.all()
-  return render_template('review.html', reviehouse = reviehouse, pastreview=pastreview)
+  return render_template('review.html', reviehouse = reviehouse, pastreview=pastreview, house=house)
 
 @main.route('/search/house/<locationname>', methods=['GET', 'POST'])
 def searchhouse(locationname):
-  house = House.query.filter_by(location = locationname).all()
+  house = House.query.filter_by(location = locationname.capitalize()).all()
   return render_template('searchhouse.html', house=house,locationname = locationname)
 
 @main.route('/about')

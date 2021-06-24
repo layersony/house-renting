@@ -64,6 +64,7 @@ class House(db.Model): # house property
   desc = db.Column(db.String())
   dateposted = db.Column(db.DateTime, default=datetime.utcnow())
   user = db.Column(db.Integer, db.ForeignKey('users.id'))
+  reviews = db.relationship('Review', backref='house', lazy='dynamic')
 
   def save_house(self):
     db.session.add(self)
@@ -81,6 +82,7 @@ class Review(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   reviews = db.Column(db.String(255))
   rating = db.Column(db.Integer())
+  house_id = db.Column(db.Integer, db.ForeignKey('house.id'))
 
   def save_review(self):
     db.session.add(self)
@@ -89,6 +91,9 @@ class Review(db.Model):
   @classmethod
   def get_spec_reviews(cls, id):
     return cls.query.filter_by(id=id).all()
+  
+  def __repr__(self):
+    return 'Ratings {self.rating}'
 
 @login_manager.user_loader
 def load_user(user_id):

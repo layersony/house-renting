@@ -21,9 +21,9 @@
 
       <div class="housefooter d-flex justify-content-between align-items-center mt-3">
         <span>Add on: {{ item.dateposted.strftime('%a %b %d, %Y') }}</span>
-        <a href="{{ url_for('main.house') }}"><button class="btn btn-md reviewbtn">Update House</button></a>
-        <a href="{{ url_for('main.house') }}"><button class="btn btn-md reviewbtn">Check House</button></a>
-        <a href="{{ url_for('main.house') }}" class="text-danger"><i class="fad fa-trash"></i></a>
+        <a href=""><button class="btn btn-md reviewbtn">Update House</button></a>
+        <a href="{{ url_for('main.house', id=item.id) }}"><button class="btn btn-md reviewbtn">Check House</button></a>
+        <a href="#" class="text-danger"><i class="fad fa-trash"></i></a>
       </div>
     </div>
   </div>

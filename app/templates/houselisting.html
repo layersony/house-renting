@@ -16,13 +16,13 @@
           <span>{{item.house_type}} in {{item.location}}, {{item.city}}</span>
           <span class="price">Ksh {{item.price}}</span>
         </div>
-        <sub>Ratings <span>4</span> Stars</sub>
+        <sub><span>.</span></sub>
         <div class="housefooter d-flex justify-content-between align-items-center mt-3">
           <span>{{ item.dateposted.strftime('%a %b %d, %Y') }}</span>
           <span>Reviews 3</span>
-          <a href="{{ url_for('main.house') }}"><button class="btn btn-md reviewbtn">Check House</button></a>
+          <a href="{{ url_for('main.house', id=item.id) }}"><button class="btn btn-md reviewbtn">Check House</button></a>
         </div>
-      </div>
+      </div> 
     </div>
     {% endfor %}
   </div>

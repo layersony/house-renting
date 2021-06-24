@@ -3,11 +3,12 @@
 {% block content %}
 
 <div class="houselist mt-md-4 mb-md-4 d-flex flex-column justify-content-center align-items-center">
-  <h3 class="text-center">Search Houses for {{ locationname }}</h3>
+
+  <h3 class="text-center">Search Houses for {{ locationname.capitalize() }}</h3>
 
   <div class="housediv">
-    {% if houslisting %}
-    {% for item in houselisting %}
+    {% if house %}
+    {% for item in house %}
     <div class="row featured mt-3">
       <div class="col-md-4">
         <img src="{{url_for('static',filename=item.images)}}" alt="house image" class="img-fluid">
@@ -21,13 +22,14 @@
         <div class="housefooter d-flex justify-content-between align-items-center mt-3">
           <span>{{ item.dateposted.strftime('%a %b %d, %Y') }}</span>
           <span>Reviews 3</span>
-          <a href="{{ url_for('main.house') }}"><button class="btn btn-md reviewbtn">Check House</button></a>
+          <a href="{{ url_for('main.house', id=item.id) }}"><button class="btn btn-md reviewbtn">Check House</button></a>
         </div>
       </div>
     </div>
     {% endfor %}
     {% else %}
-    <p class="text-center text-dark">No House in {{ locationname }}</p>
+    <p class="text-center text-dark">No House in {{ locationname.capitalize() }}</p>
+    <p class="text-center text-dark"> Houses are Available in Karen, Runda, Umoja, Embakasi, Kasarani, Thika, Pipeline</p>
     {% endif %}
   </div>
 </div>
