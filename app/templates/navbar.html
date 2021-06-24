@@ -1,29 +1,4 @@
-<<<<<<< HEAD
- <div class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"> Test Nav </a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li class="lilisting"><a class="nav-item other" href="{{url_for('auth.register')}}">Register</a></li>
-                <li><a class="nav-item other" href="{{url_for('auth.login')}}">Sign In</a></li>
-                <a class="dropdown-item" href="{{url_for('auth.logout')}}"
-                ><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a
-              >
-            </ul>
-          </div>
-    </div>
-</div>
-||||||| 4d06be7
-=======
+
 <div class="navbar-custom">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light pt-md-4">
@@ -39,11 +14,10 @@
             <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.houselist') }}">House Listing</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('main.about') }}">About Us</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="#">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#">Agent Login</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="{{url_for('auth.login')}}">Agent Login</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </div>
 </div>
->>>>>>> 7c9fffe80935cd0b6276caa4b5d39040fcac2c57
