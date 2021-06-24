@@ -4,7 +4,27 @@
 {{ wtf.quick_form(form)}}
 
 <div class="listproperty">
-
+  {# if houses #}
+  {# for item in houses #}
+  <div class="row featured">
+    <div class="col-md-4">
+      <img src="#" alt="house image">
+    </div>
+    <div class="col-md-8">
+      <div class="househead d-flex justify-content-between align-items-center mb-md-5">
+        <span>1 bedroom in Embakasi, Nairobi</span>
+        <span class="price">Ksh 12000</span>
+      </div>
+      <sub>Ratings <span>4</span> Stars</sub>
+      <div class="housefooter d-flex justify-content-between align-items-center mt-3">
+        <span>Sat 12, 2021</span>
+        <span>Reviews 3</span>
+        <a href="#"><button class="btn btn-md reviewbtn">Check House</button></a>
+      </div>
+    </div>
+  </div>
+  {# endfor #}
+  {# endif #}
 </div>
 
   
