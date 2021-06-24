@@ -1,6 +1,6 @@
 start.sh
 *pyc
-houserenting/
+househunt/
 settings.json
 installpips.sh
 virtual/
