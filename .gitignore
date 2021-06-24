@@ -3,6 +3,7 @@ start.sh
 houserenting/
 settings.json
 installpips.sh
+virtual/
 
 
 ### Flask ###

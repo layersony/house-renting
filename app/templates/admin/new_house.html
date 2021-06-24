@@ -1,0 +1,74 @@
+{% extends 'admin/base.html' %}{%block content%}
+<div class="container" class="abt">
+
+    <div class="row">
+
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-6">
+        </div>
+            <div class="new-house mt-5">
+                <h1 class="h4 mb-4 text-center" id="about">New House </h1>
+                <form class="article-form m-auto" action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="house_location">House type</label>
+                        <input type="text" class="form-control" name="type" id="article_title" placeholder="type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_desc">House description</label>
+                        <textarea class="form-control" name="body" id="article_body" rows="3" placeholder="Give description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_location">House price</label>
+                        <input type="text" class="form-control" name="type" id="article_title" placeholder="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_price">House location</label>
+                        <select class="form-control" name="city" id="house_city" required>
+        <option value="karen">Karen</option>
+        <option value="runda">Runda</option>
+        <option value="umoja">Umoja</option>
+        <option value="embakasi">Embakasi</option>
+        <option value="kasarani">Kasarani</option>
+       
+        <option value="pipeline">Pipeline</option>
+        <option value="thika">Thika</option>
+        <option value=" Others">Others</option>
+      </select>
+                    </div>
+                    <div class="file-field">
+                        <div class="btn btn-primary btn-sm float-left">
+                            <span>Choose House Cover</span><br><br>
+                            <input type="file" name="photo" id="photo" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="submit" value="POST A HOUSE">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+    
+</div>
+
+
+<style>
+    .abt {
+        margin-top: 50px;
+    }
+    
+    #about {
+        text-decoration: underline;
+        color: gold;
+    }
+    
+    body {
+        background-image: url('../static/images/back5.jpeg');
+    }
+</style>
+{% endblock %}

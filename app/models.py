@@ -3,6 +3,7 @@ from flask_login import UserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
+
 class User(UserMixin, db.Model): # table for both agent & admin
   __tablename__ = 'users'
 
