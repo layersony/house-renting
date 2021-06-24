@@ -2,14 +2,14 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<div class="container"> 
+<div class="container bg-light"> 
     <div class="row">
       <div class= "col-md-2"> </div>
       <div class="col-md-8">
       <!--Flash message -->
       {% for message in get_flashed_messages() %}
         <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <button type="button btn-outlune-info" class="close" data-dismiss="alert">&times;</button>
         {{ message }}
         </div>
       {% endfor %}
